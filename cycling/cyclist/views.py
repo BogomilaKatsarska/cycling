@@ -1,14 +1,15 @@
 from django import http
-from django.shortcuts import render
-
+from django.shortcuts import render, redirect, resolve_url
 from cycling.cyclist.models import Cyclist
 
 
-def cyclist_details(request):
+def cyclist_details(request, pk):
+    current_cyclist = Cyclist.objects.get(pk=pk)
     all_cyclists = Cyclist.objects.order_by('first_name').all()
     context = {
         'title': 'The app for cyclists',
         'cyclists': all_cyclists,
+        'current_cyclist': current_cyclist,
     }
     return render(request, 'cyclist_details.html', context)
 
