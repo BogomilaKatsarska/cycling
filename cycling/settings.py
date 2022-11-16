@@ -1,4 +1,3 @@
-# URLs and Views: 1:18
 from pathlib import Path
 
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -8,6 +7,10 @@ SECRET_KEY = 'django-insecure-qitdwi#e7hocy(-4ni-vbyu^hg7&%q6_o2p3k3yd6s-h-z009k
 DEBUG = True
 
 ALLOWED_HOSTS = []
+# ALLOWED_HOSTS = [
+#     '127.0.0.1',
+#     'localhost',
+# ]
 
 INSTALLED_APPS = [
     # Django Apps

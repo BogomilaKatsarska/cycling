@@ -1,4 +1,5 @@
 from django import http
+from django.http import HttpResponseNotFound
 from django.shortcuts import render, redirect, resolve_url
 from cycling.cyclist.models import Cyclist
 
@@ -19,3 +20,16 @@ def cyclists_all(request):
     result = ', '.join(f'{c.first_name} ({c.birthday})' for c in all_cyclists)
     # [first_name(id), first_name(id)]
     return http.HttpResponse(result)
+
+
+def redirect_to_cyclists_comparison_page(request):
+    return redirect('cyclist all')
+
+
+def redirect_to_cyclist_instagram_page(request):
+    to = 'https://www.instagram.com/'
+    return redirect(to)
+
+
+def show_not_found(request):
+    return HttpResponseNotFound('This page cannot be found')
