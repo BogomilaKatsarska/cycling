@@ -12,13 +12,24 @@
 {#    End of Bootstrap#}
 </head>
 <body>
+{#<nav>#}
+{#    <a href="{% url 'cyclist details' pk=pk %}">Go to cyclist</a>#}
+<a href="{% url 'index' %}">HomePage</a>
+{#</nav>#}
 <h1> {{ title}}</h1>
 <h2>The cyclists:</h2>
 <ul>
-{% for cyclist in cyclists %}
-    <li> {{ cyclist.first_name|lower|capfirst }} {{ cyclist.last_name|upper }} </li>
-{% endfor %}
+        {% for cyclist in all_cyclists %}
+            <li> {{ cyclist.first_name|lower|capfirst }} {{ cyclist.last_name|upper }} </li>
+        {% empty %}
+            <li>No cyclists</li>
+        {% endfor %}
+
+<ul>
+    {{joined_cyclists}}
+</ul>
 <h3>{{ current_cyclist.first_name }}</h3>
 </ul>
+{% csrf_token %}
 </body>
 </html>

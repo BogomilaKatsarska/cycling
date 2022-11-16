@@ -4,6 +4,10 @@ from django.shortcuts import render, redirect, resolve_url
 from cycling.cyclist.models import Cyclist
 
 
+def index(request):
+    return render(request, 'index.html')
+
+
 def cyclist_details(request, pk):
     current_cyclist = Cyclist.objects.get(pk=pk)
     all_cyclists = Cyclist.objects.order_by('first_name').all()
@@ -18,8 +22,13 @@ def cyclist_details(request, pk):
 def cyclists_all(request):
     all_cyclists = Cyclist.objects.order_by('first_name').all()
     result = ', '.join(f'{c.first_name} ({c.birthday})' for c in all_cyclists)
+    context = {
+        'title': 'The app for cyclists',
+        'all_cyclists': all_cyclists,
+        'joined_cyclists': result,
+    }
     # [first_name(id), first_name(id)]
-    return http.HttpResponse(result)
+    return render(request, 'cyclists_all.html', context)
 
 
 def redirect_to_cyclists_comparison_page(request):
