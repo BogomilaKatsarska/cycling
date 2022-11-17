@@ -16,7 +16,7 @@ def cyclist_details(request, pk):
         'cyclists': all_cyclists,
         'current_cyclist': current_cyclist,
     }
-    return render(request, 'cyclist_details.html', context)
+    return render(request, 'cyclist/cyclist_details.html', context)
 
 
 def cyclists_all(request):
@@ -28,7 +28,7 @@ def cyclists_all(request):
         'joined_cyclists': result,
     }
     # [first_name(id), first_name(id)]
-    return render(request, 'cyclists_all.html', context)
+    return render(request, 'cyclist/cyclists_all.html', context)
 
 
 def redirect_to_cyclists_comparison_page(request):

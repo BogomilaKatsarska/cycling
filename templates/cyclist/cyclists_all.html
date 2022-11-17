@@ -1,0 +1,19 @@
+{% extends 'base/base.html' %}
+{% load tags %}
+{% block page_content %}
+<h1> {{ title}}</h1>
+<h2>The cyclists:</h2>
+<ul>
+        {% for cyclist in all_cyclists %}
+            <li> {{ cyclist.first_name|lower|capfirst }} {{ cyclist.last_name|upper }} </li>
+        {% empty %}
+            <li>No cyclists</li>
+        {% endfor %}
+
+<ul>
+    {{joined_cyclists}}
+</ul>
+<h3>{{ current_cyclist.first_name }}</h3>
+</ul>
+{% csrf_token %}
+{% endblock %}

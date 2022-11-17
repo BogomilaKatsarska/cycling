@@ -1,3 +1,5 @@
+{% load tags %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,24 +14,17 @@
 {#    End of Bootstrap#}
 </head>
 <body>
-{#<nav>#}
+<nav>
 {#    <a href="{% url 'cyclist details' pk=pk %}">Go to cyclist</a>#}
 <a href="{% url 'index' %}">HomePage</a>
-{#</nav>#}
-<h1> {{ title}}</h1>
-<h2>The cyclists:</h2>
-<ul>
-        {% for cyclist in all_cyclists %}
-            <li> {{ cyclist.first_name|lower|capfirst }} {{ cyclist.last_name|upper }} </li>
-        {% empty %}
-            <li>No cyclists</li>
-        {% endfor %}
+</nav>
+Tag Nav:
+{% app_nav 'index' 'index' %}
 
-<ul>
-    {{joined_cyclists}}
-</ul>
-<h3>{{ current_cyclist.first_name }}</h3>
-</ul>
-{% csrf_token %}
+{#Placeholder for child templates to use#}
+{% block page_content %}
+{% endblock %}
+{% include 'partials/footer.html' %}
 </body>
+
 </html>

@@ -1,0 +1,11 @@
+{% extends 'base/base.html' %}
+{% block page_content %}
+<h1> {{ title}}</h1>
+<h2>The cyclists:</h2>
+<ul>
+{% for cyclist in cyclists %}
+    <li> {{ cyclist.first_name|lower|capfirst }} {{ cyclist.last_name|upper }} </li>
+{% endfor %}
+<h3>{{ current_cyclist.first_name }}</h3>
+</ul>
+{% endblock %}

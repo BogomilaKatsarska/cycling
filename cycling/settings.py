@@ -1,4 +1,4 @@
-# Django Templates: 1:49
+# Django Templates: 2:54
 from pathlib import Path
 
 BASE_DIR = Path(__file__).resolve().parent.parent
