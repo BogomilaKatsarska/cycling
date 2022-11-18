@@ -1,0 +1,25 @@
+h1{
+    text-decoration: underline;
+}
+
+a{
+    color: black;
+    text-decoration: none;
+}
+
+a:hover{
+    text-decoration: underline;
+}
+/*ID*/
+#bottom {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+/*CLASS*/
+.main {
+  border: 1px solid #4287f5;
+  height: 180px;
+  width: 500px;
+  position: relative;
+}

@@ -1,4 +1,4 @@
-# Django Templates: 2:54
+from os.path import join
 from pathlib import Path
 
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -99,5 +99,14 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
 STATIC_URL = '/static/'
+
+STATICFILES_DIRS = (
+    join(BASE_DIR, 'staticfiles'),
+)
+
+# OR:
+# STATICFILES_DIRS = (
+#     BASE_DIR / 'staticfiles',
+# )
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
