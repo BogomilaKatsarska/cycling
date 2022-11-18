@@ -1,3 +1,4 @@
+# Models in Django 1:03:56
 from os.path import join
 from pathlib import Path
 

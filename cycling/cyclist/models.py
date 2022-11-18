@@ -21,6 +21,7 @@ class Cyclist(models.Model):
         blank=True,
     )
     birthday = models.DateField()
+    email = models.EmailField()
     # speciality = One Day Races, General Classification, Time Trail, Sprint, Climber
     # team
     description = models.TextField()
@@ -35,4 +36,11 @@ class Cyclist(models.Model):
     instagram_profile = models.URLField(
         null=True,
         blank=True,
+    )
+    # visits
+    created_on = models.DateTimeField(
+        auto_now_add=True,
+    )
+    updated_on = models.DateTimeField(
+        auto_now=True,
     )
