@@ -1,0 +1,23 @@
+{% extends 'base/base.html' %}
+{% block page_content %}
+<ul>All Teams</ul>
+{#TODO: Fix this page#}
+<table class="table table-striped">
+  <thead>
+    <tr>
+        {% for team in teams %}
+      <th scope="col">{{ team.name }}</th>
+        {% endfor %}
+    </tr>
+  </thead>
+  <tbody>
+
+  {% for competition in team.competitions.all %}
+    <tr>
+      <td>{{competition}}</td>
+    </tr>
+  {% endfor %}
+  </tbody>
+</table>
+    {% csrf_token %}
+{% endblock %}

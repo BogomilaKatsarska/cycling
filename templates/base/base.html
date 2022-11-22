@@ -5,7 +5,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Cycling</title>
 {#    Below is Bootstrap#}
     <!-- CSS only -->
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
@@ -26,16 +26,22 @@
 <div class="main">
 <nav>
 {#    <a href="{% url 'cyclist details' pk=pk %}">Go to cyclist</a>#}
-<a href="{% url 'index' %}">HomePage</a>
+    <a href="{% url 'index' %}">HomePage</a>
+    <a href="{% url 'cyclist all' %}">Cyclists</a>
+    <a href="{% url 'index teams' %}">Teams</a>
+    <a href="{% url 'index competition' %}">Competitions</a>
 </nav>
-Tag Nav:
-{% app_nav 'index' 'index' %}
+{#Tag Nav:#}
+{#{% app_nav 'index' 'index' %}#}
+{#{% app_nav 'cyclist_all' 'cyclist_all'%}#}
+{#{% app_nav 'index' 'teams' %}#}
+{#{% app_nav 'index_competitons' 'index_competitons' %}#}
 
 {#Placeholder for child templates to use#}
 {% block page_content %}
 {% endblock %}
-{% include 'partials/footer.html' %}
+
 </div>
 </body>
-
+{% include 'partials/footer.html' %}
 </html>

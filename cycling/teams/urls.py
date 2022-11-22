@@ -1,5 +1,7 @@
 from django.urls import path
 
+from cycling.teams.views import index_teams
+
 urlpatterns = (
-    path()
+    path('', index_teams, name='index teams'),
 )

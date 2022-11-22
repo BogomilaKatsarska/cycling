@@ -1,19 +1,28 @@
 {% extends 'base/base.html' %}
-{% load tags %}
 {% block page_content %}
-<h1> {{ title}}</h1>
-<h2>The cyclists:</h2>
-<ul>
-        {% for cyclist in all_cyclists %}
-            <li> {{ cyclist.first_name|lower|capfirst }} {{ cyclist.last_name|upper }} </li>
-        {% empty %}
-            <li>No cyclists</li>
-        {% endfor %}
+<h1>All Cyclists</h1>
 
-<ul>
-    {{joined_cyclists}}
-</ul>
-<h3>{{ current_cyclist.first_name }}</h3>
-</ul>
-{% csrf_token %}
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">Name</th>
+      <th scope="col">Nationality</th>
+      <th scope="col">Birthday</th>
+      <th scope="col">Specialty</th>
+        <th scope="col">Team</th>
+    </tr>
+  </thead>
+  <tbody>
+  {% for cyclist in all_cyclists %}
+    <tr>
+      <td>{{cyclist.first_name}} {{ cyclist.last_name }}</td>
+      <td> {{ cyclist.country}}</td>
+      <td>{{cyclist.birthday}}</td>
+      <td>{{cyclist.speciality}}</td>
+        <td>{{cyclist.team}}</td>
+    </tr>
+  {% endfor %}
+  </tbody>
+</table>
+    {% csrf_token %}
 {% endblock %}

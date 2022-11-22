@@ -3,6 +3,7 @@
 <h1> {{ title}}</h1>
 <h2>The cyclists:</h2>
 <ul>
+{#TODO: this dynamic#}
 {% for cyclist in cyclists %}
     <li> {{ cyclist.first_name|lower|capfirst }} {{ cyclist.last_name|upper }} </li>
 {% endfor %}

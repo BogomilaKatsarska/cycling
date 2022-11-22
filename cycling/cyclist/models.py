@@ -1,4 +1,6 @@
 from django.db import models
+from django_countries.fields import CountryField
+from cycling.teams.models import Team
 
 
 # Maps to a DB Table
@@ -31,7 +33,7 @@ class Cyclist(models.Model):
         null=False,
         blank=False,
     )
-    # nationality = https://pypi.org/project/django-countries/
+    country = CountryField()
     photo = models.ImageField(
         null=True,
         blank=True,
@@ -42,7 +44,10 @@ class Cyclist(models.Model):
         max_length=MAX_SPECIALTY_LEN,
         choices=SPECIALTIES,
     )
-    # team
+    team = models.ForeignKey(
+        Team,
+        on_delete=models.CASCADE,
+    )
     description = models.TextField()
     mail = models.EmailField(
         verbose_name='e-mail',

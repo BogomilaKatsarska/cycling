@@ -20,14 +20,10 @@ def cyclist_details(request, pk):
 
 
 def cyclists_all(request):
-    all_cyclists = Cyclist.objects.order_by('first_name').all()
-    result = ', '.join(f'{c.first_name} ({c.birthday})' for c in all_cyclists)
+    all_cyclists = Cyclist.objects.all()
     context = {
-        'title': 'The app for cyclists',
         'all_cyclists': all_cyclists,
-        'joined_cyclists': result,
     }
-    # [first_name(id), first_name(id)]
     return render(request, 'cyclist/cyclists_all.html', context)
 
 

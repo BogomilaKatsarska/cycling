@@ -23,9 +23,11 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     # Third-Party Apps /Additional Packages/
-
+    'django_countries',
     # Application apps
     'cycling.cyclist',
+    'cycling.teams',
+    'cycling.competitions',
 ]
 
 MIDDLEWARE = [
