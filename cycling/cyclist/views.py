@@ -10,10 +10,8 @@ def index(request):
 
 def cyclist_details(request, pk):
     current_cyclist = Cyclist.objects.get(pk=pk)
-    all_cyclists = Cyclist.objects.order_by('first_name').all()
     context = {
         'title': 'The app for cyclists',
-        'cyclists': all_cyclists,
         'current_cyclist': current_cyclist,
     }
     return render(request, 'cyclist/cyclist_details.html', context)
