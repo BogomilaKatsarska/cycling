@@ -1,0 +1,28 @@
+{% extends 'base/base.html' %}
+{% block page_content %}
+<h1>Cyclists looking for new opportunities</h1>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">Name</th>
+      <th scope="col">Nationality</th>
+      <th scope="col">Birthday</th>
+      <th scope="col">Specialty</th>
+        <th scope="col">Team</th>
+    </tr>
+  </thead>
+  <tbody>
+  {% for cyclist in cyclists_opportunities %}
+    <tr>
+      <td>{{cyclist.first_name}} {{ cyclist.last_name }}</td>
+      <td> {{ cyclist.country}}</td>
+      <td>{{cyclist.birthday}}</td>
+      <td>{{cyclist.speciality}}</td>
+        <td>{{cyclist.team}}</td>
+    </tr>
+  {% endfor %}
+  </tbody>
+</table>
+    {% csrf_token %}
+{% endblock %}

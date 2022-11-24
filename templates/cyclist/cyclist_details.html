@@ -1,12 +1,16 @@
 {% extends 'base/base.html' %}
 {% block page_content %}
 <h1> {{ title}}</h1>
-<h2>The cyclists:</h2>
+<h2>Personal Information</h2>
 <ul>
-{#TODO: this dynamic#}
-{% for cyclist in cyclists %}
-    <li> {{ cyclist.first_name|lower|capfirst }} {{ cyclist.last_name|upper }} </li>
-{% endfor %}
-<h3>{{ current_cyclist.first_name }}</h3>
+
+    <li> {{ current_cyclist.first_name|lower|capfirst }} {{ current_cyclist.last_name|upper }} </li>
+    <li>{{ current_cyclist.country }}</li>
+
+{#TODO: Add it as a button}
+<a href="{% url 'delete cyclist'  pk=current_cyclist.pk %}">
+        Delete
+    </a>
+
 </ul>
 {% endblock %}

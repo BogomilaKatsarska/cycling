@@ -5,6 +5,9 @@ from cycling.teams.models import Team
 
 # Maps to a DB Table
 class Cyclist(models.Model):
+    class Meta:
+        ordering = ('first_name', 'last_name')
+
     ONE_DAY_RACES_SPECIALTY = 'One Day Races'
     GC_SPECIALTY = 'General Classification'
     TT_SPECIALTY = 'Time Trail'
