@@ -8,8 +8,8 @@ def index(request):
     return render(request, 'index.html')
 
 
-def cyclist_details(request, pk):
-    current_cyclist = Cyclist.objects.get(pk=pk)
+def cyclist_details(request, pk, slug):
+    current_cyclist = Cyclist.objects.get(pk=pk, slug=slug)
     context = {
         'title': 'The app for cyclists',
         'current_cyclist': current_cyclist,
@@ -34,8 +34,9 @@ def cyclists_open_for_new_opportunities(request):
     return render(request, 'cyclist/cyclists_opportunities.html', context)
 
 
-def delete_cyclist(request, pk):
-    cyclist = get_object_or_404(Cyclist, pk=pk)
+# TODO: check if slug works in browser
+def delete_cyclist(request, slug, pk):
+    cyclist = get_object_or_404(Cyclist, slug=slug, pk=pk)
     cyclist.delete()
     return redirect('index')
 
@@ -51,3 +52,5 @@ def redirect_to_cyclist_instagram_page(request):
 
 def show_not_found(request):
     return HttpResponseNotFound('This page cannot be found')
+
+

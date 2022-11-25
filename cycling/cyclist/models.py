@@ -73,6 +73,9 @@ class Cyclist(models.Model):
         blank=True,
         unique=True,
     )
+    slug = models.SlugField(
+        unique=True,
+    )
 
     @property
     def full_name(self):
@@ -80,4 +83,5 @@ class Cyclist(models.Model):
 
     def __str__(self):
         return f'ID: {self.pk} - Name: {self.full_name}'
+
     # visits
