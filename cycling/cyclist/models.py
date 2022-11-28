@@ -1,5 +1,7 @@
 from django.db import models
 from django_countries.fields import CountryField
+
+from cycling.cyclist.validators import validate_birthday_in_past
 from cycling.teams.models import Team
 
 
@@ -41,7 +43,9 @@ class Cyclist(models.Model):
         null=True,
         blank=True,
     )
-    birthday = models.DateField()
+    birthday = models.DateField(
+        validators=(validate_birthday_in_past,)
+    )
     open_for_new_opportunities = models.BooleanField()
     speciality = models.CharField(
         max_length=MAX_SPECIALTY_LEN,

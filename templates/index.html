@@ -1,4 +1,10 @@
 {% extends 'base/base.html' %}
 {% block page_content %}
-<ul>Welcome to the world's largest cycling community</ul>
+<h1>Welcome to the world's largest cycling community</h1>
+    <form method="post" action="{% url 'cyclist details'  pk=pk slug=slug %}">
+{{ form }}
+    <button>
+        LogIn
+    </button>
+    </form>
 {% endblock %}

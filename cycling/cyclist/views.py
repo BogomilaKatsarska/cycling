@@ -1,15 +1,34 @@
 from django import http
 from django.http import HttpResponseNotFound
 from django.shortcuts import render, redirect, resolve_url, get_object_or_404
+
+from cycling.cyclist.forms import CyclistForm
 from cycling.cyclist.models import Cyclist
 
 
 def index(request):
-    return render(request, 'index.html')
+    name = None
+    if request.method == "GET":
+        form = Cyclist()
+    else:
+        form = CyclistForm(request.POST)
+        if form.is_valid():
+            name = form.cleaned_data['your_name']
+            Cyclist.objects.create(
+                name=name,
+            )
+    context = {
+        'form': form,
+        'name': name,
+    }
+    return render(request, 'index.html', context)
 
 
 def cyclist_details(request, pk, slug):
-    current_cyclist = Cyclist.objects.get(pk=pk, slug=slug)
+    if request.method == 'GET':
+        current_cyclist = Cyclist()
+    else:
+        current_cyclist = Cyclist.objects.get(pk=pk, slug=slug)
     context = {
         'title': 'The app for cyclists',
         'current_cyclist': current_cyclist,
