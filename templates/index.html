@@ -2,7 +2,10 @@
 {% block page_content %}
 <h1>Welcome to the world's largest cycling community</h1>
     <form method="post" action="{% url 'cyclist details'  pk=pk slug=slug %}">
-{{ form }}
+        <table>
+            {{ form.as_table }}
+        </table>
+        {% csrf_token %}
     <button>
         LogIn
     </button>
